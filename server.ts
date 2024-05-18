@@ -1,20 +1,27 @@
-import type { RequestHandler } from '@remix-run/cloudflare'
-import { type AppLoadContext } from '@remix-run/cloudflare'
+import type { RequestHandler, AppLoadContext } from '@remix-run/cloudflare'
+import { logDevReady } from '@remix-run/cloudflare'
 import { Hono } from 'hono'
 import { poweredBy } from 'hono/powered-by'
 import { staticAssets } from 'remix-hono/cloudflare'
 import { remix } from 'remix-hono/handler'
 
-const app = new Hono<{
-  Bindings: {
-    MY_VAR: string
-  }
-}>()
+
+/* type your Cloudflare bindings here */
+type Bindings = {
+  MY_VAR: string
+};
+
+/* type your Hono variables (used with c.get/c.set) here */
+type Variables = {};
+
+type ContextEnv = { Bindings: Bindings; Variables: Variables };
+
+const app = new Hono<ContextEnv>()
 
 let handler: RequestHandler | undefined
 
 app.use(poweredBy())
-app.get('/hono', (c) => c.text('Hono, ' + c.env.MY_VAR))
+app.get('/api', (c) => c.text('Api, ' + c.env.MY_VAR))
 
 app.use(
   async (c, next) => {
