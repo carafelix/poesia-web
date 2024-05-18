@@ -1,9 +1,9 @@
 import type { RequestHandler, AppLoadContext } from '@remix-run/cloudflare'
-import { logDevReady } from '@remix-run/cloudflare'
 import { Hono } from 'hono'
 import { poweredBy } from 'hono/powered-by'
 import { staticAssets } from 'remix-hono/cloudflare'
 import { remix } from 'remix-hono/handler'
+import apiRouter from './api/api'
 
 
 /* type your Cloudflare bindings here */
@@ -21,8 +21,8 @@ const app = new Hono<ContextEnv>()
 let handler: RequestHandler | undefined
 
 app.use(poweredBy())
-app.get('/api', (c) => c.text('Api, ' + c.env.MY_VAR))
-
+app.get('/hono', (c) => c.text('Hono, ' + c.env.MY_VAR))
+app.mount('/', apiRouter.handle ) // base /api
 app.use(
   async (c, next) => {
     if (process.env.NODE_ENV !== 'development' || import.meta.env.PROD) {
