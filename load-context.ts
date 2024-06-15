@@ -2,13 +2,13 @@ import { type PlatformProxy } from 'wrangler'
 import { WorkerEntrypoint } from 'cloudflare:workers'
 
 interface Env {
-  API: Fetcher
+   API: Fetcher
 }
 
 type Cloudflare = Omit<PlatformProxy<Env>, 'dispose'>
 
 declare module '@remix-run/cloudflare' {
-  interface AppLoadContext {
-    cloudflare: Cloudflare
-  }
+   interface AppLoadContext {
+      cloudflare: Cloudflare
+   }
 }
