@@ -6,7 +6,7 @@ import { remix } from 'remix-hono/handler'
 
 /* type your Cloudflare bindings here */
 type Bindings = {
-  MY_VAR: string
+  API: Fetcher
 }
 
 /* type your Hono variables (used with c.get/c.set) here */
@@ -19,7 +19,6 @@ const app = new Hono<ContextEnv>()
 let handler: RequestHandler | undefined
 
 app.use(poweredBy())
-app.get('/hono', (c) => c.text('Hono, ' + c.env.MY_VAR))
 app.use(
   async (c, next) => {
     if (process.env.NODE_ENV !== 'development' || import.meta.env.PROD) {

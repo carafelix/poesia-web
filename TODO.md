@@ -8,15 +8,10 @@
 
 ## MVP
 
-- clean lezama poems
 - api poem retrival in json format
 - define db SQL schema (drizzle)
 - openapi
 - landing page
-- check if hono is able to in-house request the api inside itty router
-- d1 drizzle > drizzle to zod > zod to openapi (using cloudflare). is this a
-  good idea?
-- zod schemas openapi > types > kysely ?
 
 ## mid-term
 

@@ -5,7 +5,8 @@
     "**/.server/**/*.ts",
     "**/.server/**/*.tsx",
     "**/.client/**/*.ts",
-    "**/.client/**/*.tsx"
+    "**/.client/**/*.tsx",
+    "app/routes/.$_index.tsx"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
@@ -23,9 +24,12 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./app/*"],
+      "@db/*": [
+        "../api/src/db/*"
+      ]
     },
-
+    "allowImportingTsExtensions": true,
     // Vite takes care of building everything, not tsc.
     "noEmit": true
   }

@@ -3,16 +3,16 @@ import { json } from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
 
 export const meta: MetaFunction = () => {
-  return [{ title: 'Remix and Hono on Vite' }]
+  return [{ title: 'Inicio' }]
 }
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
   const { env } = context.cloudflare
-  return json({ myVar: env.MY_VAR })
+  return json({ foo: 'bar' })
 }
 
 export default function Index() {
-  const { myVar } = useLoaderData<typeof loader>()
+  const { foo } = useLoaderData<typeof loader>()
 
   return (
     <div>

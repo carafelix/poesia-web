@@ -1,7 +1,8 @@
 import { type PlatformProxy } from 'wrangler'
+import { WorkerEntrypoint } from 'cloudflare:workers'
 
 interface Env {
-  MY_VAR: string
+  API: Fetcher
 }
 
 type Cloudflare = Omit<PlatformProxy<Env>, 'dispose'>

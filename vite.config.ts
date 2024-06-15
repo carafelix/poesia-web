@@ -2,6 +2,7 @@ import devServer, { defaultOptions } from '@hono/vite-dev-server'
 import adapter from '@hono/vite-dev-server/cloudflare'
 import { vitePlugin as remix } from '@remix-run/dev'
 import { defineConfig } from 'vite'
+import path from 'path'
 
 export default defineConfig({
   ssr: {
@@ -18,4 +19,9 @@ export default defineConfig({
       injectClientScript: false,
     }),
   ],
+  resolve: {
+    alias: {
+      '@db': path.resolve(__dirname, '../api/src/db'),
+    },
+  },
 })
