@@ -16,15 +16,18 @@ export default function Index() {
 
   return (
     <div>
-      <h1>WIP, comeback later! Stack:</h1>
-      <ul>
-        <li>Cloudflare Workers + Pages</li>
-        <li>
-          API backend: Hono + openAPIRouter (mounted) + D1 SQlite + Drizzle +
-          Zod
-        </li>
-        <li>Front SSR: Hono + Remix + twind</li>
-      </ul>
+      <h1>WIP, comeback later!</h1>
+      <p>
+        Stack:
+        <ul>
+          <li>Cloudflare Workers + Pages</li>
+          <li>
+            API backend: Hono + openAPIRouter (mounted) + D1 SQlite + Drizzle +
+            Zod
+          </li>
+          <li>Front SSR: Hono + Remix + twind</li>
+        </ul>
+      </p>
       <img src='/assets/hono-logo.png' />
     </div>
   )
