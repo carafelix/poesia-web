@@ -6,8 +6,8 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   ssr: {
     resolve: {
-      externalConditions: ['workerd', 'worker']
-    }
+      externalConditions: ['workerd', 'worker'],
+    },
   },
   plugins: [
     remix(),
@@ -15,7 +15,7 @@ export default defineConfig({
       adapter,
       entry: 'server.ts',
       exclude: [...defaultOptions.exclude, '/assets/**', '/app/**'],
-      injectClientScript: false
-    })
-  ]
+      injectClientScript: false,
+    }),
+  ],
 })
