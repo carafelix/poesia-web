@@ -12,23 +12,11 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 }
 
 export default function Index() {
-   const { foo } = useLoaderData<typeof loader>()
-   const a = 'b'
    return (
       <div>
-         <h1>WIP, comeback later!</h1>
-         <p>
-            Stack:
-            <ul>
-               <li>Cloudflare Workers + Pages</li>
-               <li>
-                  API backend: Hono + openAPIRouter (mounted) + D1 SQlite +
-                  Drizzle + Zod
-               </li>
-               <li>Front SSR: Hono + Remix + twind</li>
-            </ul>
-         </p>
-         <img src='/assets/hono-logo.png' />
+         <h1 className='text-3xl font-bold'>
+            Hello world!
+         </h1>
       </div>
    )
 }
