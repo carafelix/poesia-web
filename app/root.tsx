@@ -20,7 +20,18 @@ export default function App() {
             <Meta />
             <Links />
          </head>
-         <body>
+         <body className='dark:bg-gray-950  dark:text-white'>
+            <header className='sticky'>
+               <nav className='flex-auto p-4'>
+                  <ul className='flex justify-around font-semibold'>
+                     <li>Inicio</li>
+                     <li>Lector</li>
+                     <li>Misión</li>
+                     <li>Login</li>
+                  </ul>
+               </nav>
+            </header>
+
             <Outlet />
             <ScrollRestoration />
             <Scripts />
