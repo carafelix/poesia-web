@@ -5,6 +5,7 @@
    "type": "module",
    "scripts": {
       "build": "remix vite:build",
+      "svgs": "npx @svgr/cli --out-dir app/assets/svgs/components -- app/assets/svgs/raw/mine",
       "deploy": "npm run build && wrangler pages deploy ./build/client",
       "dev": "vite",
       "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
@@ -29,6 +30,10 @@
       "@hono/vite-cloudflare-pages": "^0.2.5",
       "@hono/vite-dev-server": "^0.11.1",
       "@remix-run/dev": "^2.8.1",
+      "@svgr/cli": "^8.1.0",
+      "@svgr/plugin-jsx": "^8.1.0",
+      "@svgr/plugin-prettier": "^8.1.0",
+      "@svgr/plugin-svgo": "^8.1.0",
       "@types/react": "^18.2.20",
       "@types/react-dom": "^18.2.7",
       "@typescript-eslint/eslint-plugin": "^6.7.4",
