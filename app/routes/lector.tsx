@@ -1,7 +1,7 @@
 import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/cloudflare'
 import { json } from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
-import { AuthorsArr } from '@db/zodSchemas.ts'
+import { AuthorsArr } from '@db/zodSchemas'
 
 export const meta: MetaFunction = () => {
    return [{
