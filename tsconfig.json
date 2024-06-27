@@ -8,9 +8,10 @@
         "**/.client/**/*.tsx",
         "app/routes/.$_index.tsx"
     ],
+
     "compilerOptions": {
         "lib": ["DOM", "DOM.Iterable", "ES2022"],
-        "types": ["@remix-run/cloudflare", "vite/client"],
+        "types": ["@remix-run/cloudflare", "vite/client", "@remix-run/react"],
         "isolatedModules": true,
         "esModuleInterop": true,
         "jsx": "react-jsx",

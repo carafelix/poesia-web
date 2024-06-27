@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    font-size: larger;
-}
-
 @font-face {
     font-family: ibm-retro;
     src: url('./assets/fonts/ibm/PxPlus_IBM_VGA8.ttf');
@@ -60,5 +56,14 @@ html {
     }
     .link::before {
         background-color: #fff;
+    }
+}
+
+@media (prefers-reduced-motion) {
+    * {
+        animation-play-state: paused !important;
+    }
+    .link::before {
+        transition: none !important;
     }
 }

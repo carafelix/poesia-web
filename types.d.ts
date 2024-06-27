@@ -1,1 +1,7 @@
-type PoemEssentials = Pick<PoemHydratated, 'author' | 'title' | 'book' | 'text'>
+type PoemEssentials = {
+    poemTitle: string
+    poemSubindex: number
+    poemText: string
+    bookTitle: string
+    authorName: string
+}

@@ -1,13 +1,17 @@
 export default function SimplePoem({ poem }: { poem: PoemEssentials }) {
     return (
-        <div>
-            {poem.title}
-            <hr />
-            {poem.text}
-            <hr />
-            {poem.book}
-            <hr />
-            {poem.author}
-        </div>
+        <>
+            <pre>
+                {poem.poemTitle} - {poem.poemSubindex}
+                <hr />
+                <br />
+                {poem.poemText}
+                <br />
+                <br />
+                <hr />
+                <p>{poem.bookTitle}</p>
+                <p>{poem.authorName}</p>
+            </pre>
+        </>
     )
 }

@@ -1,16 +1,20 @@
-import { json, LoaderFunctionArgs } from '@remix-run/cloudflare'
+import { json, LoaderFunctionArgs, MetaFunction } from '@remix-run/cloudflare'
 import { Link, useLoaderData, useNavigate } from '@remix-run/react'
-import { Hombrelee } from '../assets/svgs/components/index'
+import { Hombrelee, PerroCola2 } from '../assets/svgs/components/index'
 import { PoemSchema } from '@db/zodSchemas'
 import SimplePoem from '../components/poemSimpleFormat'
+
+export const meta: MetaFunction = () => {
+    return [{ title: 'Not Found | Poesía.dev' }]
+}
 
 export const loader = async ({ context, params }: LoaderFunctionArgs) => {
     const { env } = context.cloudflare
     const responseJson = await (
         await env.API.fetch('http://localhost:8787/poemarandom?length=300')
     ).json()
-
-    const poemarandom = PoemSchema.safeParse(responseJson).data
+    const poemarandom = responseJson
+    //PoemSchema.safeParse(responseJson).data
 
     return json({ poemarandom }, { status: 404 })
 }
@@ -19,7 +23,7 @@ export default function notFound() {
     const navigate = useNavigate()
     const { poemarandom } = useLoaderData<typeof loader>()
     return (
-        <div className='container mx-auto px-6 py-12 lg:flex lg:items-center lg:gap-12'>
+        <div className='container mx-auto w-11/12 px-6 py-12 *:my-8 lg:flex lg:items-center lg:gap-12'>
             <div className='w-full lg:w-1/2'>
                 <p className='font-medium text-blue-500 dark:text-blue-400'>
                     404!
@@ -28,10 +32,12 @@ export default function notFound() {
                     ¿Qué estás buscando?
                 </h1>
                 <p className='mt-4 text-gray-500 dark:text-gray-400'>
-                    Lo que sea que fuese, no esta aquí :c
+                    Lo que sea que fuese, no esta aquí.
+                    <br />
+                    Disfruta mientras de un poema.
                 </p>
 
-                <div className='mt-6 flex flex-wrap items-center gap-x-3'>
+                <div className='mt-6 flex flex-wrap items-center gap-3'>
                     <button
                         onClick={() => {
                             navigate(-1)
@@ -62,10 +68,14 @@ export default function notFound() {
                 </div>
             </div>
 
-            {/* <SimplePoem poem={{ ...poemarandom as unknown as PoemEssentials }} /> */}
+            <div>
+                <SimplePoem
+                    poem={{ ...(poemarandom as unknown as PoemEssentials) }}
+                />
+            </div>
 
-            <div className='relative mt-8 lg:mt-0 lg:w-1/2'>
-                <Hombrelee className='md:w-2/3 *:dark:fill-white' />
+            <div className='relative mt-8 lg:mt-0'>
+                <PerroCola2 className='w-full *:dark:fill-white' />
             </div>
         </div>
     )

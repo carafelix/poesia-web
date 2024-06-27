@@ -1,8 +1,8 @@
-.hero::before {
+#hero::before {
     background: url('../svgs/external/pattern.svg') 0 0 repeat;
 }
 
-.hero-title {
+#hero-title {
     font-family:
         ibm-retro,
         system-ui,
@@ -61,7 +61,7 @@
     animation: hero-anim 6s ease-in infinite;
 }
 
-.hero-title:hover {
+#hero-title:hover {
     animation-play-state: paused;
 }
 
@@ -89,11 +89,5 @@
     }
     100% {
         background-position: 15% 100%;
-    }
-}
-
-@media (prefers-reduced-motion) {
-    .hero-title {
-        animation-play-state: paused;
     }
 }
