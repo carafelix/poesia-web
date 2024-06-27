@@ -1,0 +1,59 @@
+
+.hero::before {
+    background: url('../svgs/external/pattern.svg') 0 0 repeat;
+}
+  
+  .hero-title {
+    font-family: ibm-retro, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #d8d8d8;
+    background: -webkit-linear-gradient(45deg, #d8d8d8 0%, #15803d 33%, #d8d8d8 66%, #15803d 100%);
+    background: -moz-linear-gradient(45deg, #d8d8d8 0%, #15803d 33%, #d8d8d8 66%, #15803d 100%);
+    background: -ms-linear-gradient(45deg, #d8d8d8 0%, #15803d 33%, #d8d8d8 66%, #15803d 100%);
+    background: -o-linear-gradient(45deg, #d8d8d8 0%, #15803d 33%, #d8d8d8 66%, #15803d 100%);
+    background: linear-gradient(45deg, #d8d8d8 0%, #15803d 33%, #d8d8d8 66%, #15803d 100%);
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hero-anim 6s ease-in infinite;
+    -moz-animation: hero-anim 6s ease-in infinite;
+    animation: hero-anim 6s ease-in infinite;
+  }
+  
+  .hero-title:hover {
+    animation-play-state: paused;
+  }
+  
+  @-webkit-keyframes hero-anim {
+    0% {
+        background-position: 100% 0%
+    }
+    100% {
+        background-position: 15% 100%
+    }
+  }
+  
+  @-moz-keyframes hero-anim {
+    0% {
+        background-position: 100% 0%
+    }
+    100% {
+        background-position: 15% 100%
+    }
+  }
+  
+  @keyframes hero-anim {
+    0% {
+        background-position: 100% 0%
+    }
+    100% {
+        background-position: 15% 100%
+    }
+  }
+  
+  @media (prefers-reduced-motion) {
+    .hero-title {
+      animation-play-state: paused;
+    }
+  }
+  
