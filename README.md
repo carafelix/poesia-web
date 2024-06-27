@@ -2,8 +2,8 @@
 
 ### Inspired By
 
-- https://postdata.linhd.uned.es/
-- https://poetrydb.org/index.html
+-   https://postdata.linhd.uned.es/
+-   https://poetrydb.org/index.html
 
 ## Concept
 

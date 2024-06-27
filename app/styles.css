@@ -2,51 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-  font-size: larger;
+:root {
+    font-size: larger;
 }
 
 @font-face {
-  font-family: ibm-retro;
-  src:  url('./assets/fonts/ibm/PxPlus_IBM_VGA8.ttf');
+    font-family: ibm-retro;
+    src: url('./assets/fonts/ibm/PxPlus_IBM_VGA8.ttf');
 }
 @font-face {
-  font-family: ubuntu;
-  src:  url('./assets/fonts/ubuntu/Ubuntu-Regular.ttf');
+    font-family: ubuntu;
+    src: url('./assets/fonts/ubuntu/Ubuntu-Regular.ttf');
 }
 
 html {
-  font-family: ubuntu, Ubuntu, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  box-sizing: border-box;
+    font-family:
+        ubuntu,
+        Ubuntu,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
+    box-sizing: border-box;
 }
 
 .link {
-  position: relative;
-  color: #000;
-  text-decoration: none;
+    position: relative;
+    color: #000;
+    text-decoration: none;
 }
-  
+
 .link::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 .link:hover::before {
-  transform: scaleX(1);
+    transform: scaleX(1);
 }
 
 @media (prefers-color-scheme: dark) {
-  .link {
-    color: #fff;
-  }
-  .link::before{
-    background-color: #fff
-  }
+    .link {
+        color: #fff;
+    }
+    .link::before {
+        background-color: #fff;
+    }
 }
