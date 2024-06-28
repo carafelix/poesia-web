@@ -23,8 +23,8 @@ export default function notFound() {
     const navigate = useNavigate()
     const { poemarandom } = useLoaderData<typeof loader>()
     return (
-        <div className='container mx-auto w-11/12 px-6 py-12 *:my-8 lg:flex lg:items-center lg:gap-12'>
-            <div className='w-full lg:w-1/2'>
+        <div className='container m-auto grid grid-flow-row items-center justify-center gap-2 px-6 py-6 *:mt-8 md:gap-12 lg:grid-flow-col lg:p-12 xl:items-center xl:justify-between'>
+            <div className='min-w-20'>
                 <p className='font-medium text-blue-500 dark:text-blue-400'>
                     404!
                 </p>
@@ -32,9 +32,9 @@ export default function notFound() {
                     ¿Qué estás buscando?
                 </h1>
                 <p className='mt-4 text-gray-500 dark:text-gray-400'>
-                    Lo que sea que fuese, no esta aquí.
+                    Lo que sea que fuere, no esta aquí.
                     <br />
-                    Disfruta mientras de un poema.
+                    Pero nunca es mal momento para disfrutar de un buen poema.
                 </p>
 
                 <div className='mt-6 flex flex-wrap items-center gap-3'>
@@ -68,14 +68,14 @@ export default function notFound() {
                 </div>
             </div>
 
-            <div>
+            <div className='w-fit'>
                 <SimplePoem
                     poem={{ ...(poemarandom as unknown as PoemEssentials) }}
                 />
             </div>
 
-            <div className='relative mt-8 lg:mt-0'>
-                <PerroCola2 className='w-full *:dark:fill-white' />
+            <div className='relative *:size-3/4 *:max-h-[45rem]'>
+                <PerroCola2 className='*:dark:fill-white' />
             </div>
         </div>
     )
