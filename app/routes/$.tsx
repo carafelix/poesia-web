@@ -1,7 +1,7 @@
 import { json, LoaderFunctionArgs, MetaFunction } from '@remix-run/cloudflare'
 import { Link, useLoaderData, useNavigate } from '@remix-run/react'
-import { Hombrelee, PerroCola2 } from '../assets/svgs/components/index'
-import { PoemSchema } from '@db/zodSchemas'
+import { PerroCola2 } from '../assets/svgs/components/index'
+import { PoemResponseSchema } from '@db/zodSchemas'
 import SimplePoem from '../components/poemSimpleFormat'
 
 export const meta: MetaFunction = () => {
@@ -13,8 +13,7 @@ export const loader = async ({ context, params }: LoaderFunctionArgs) => {
     const responseJson = await (
         await env.API.fetch('http://localhost:8787/poemarandom?length=300')
     ).json()
-    const poemarandom = responseJson
-    //PoemSchema.safeParse(responseJson).data
+    const poemarandom = PoemResponseSchema.safeParse(responseJson).data
 
     return json({ poemarandom }, { status: 404 })
 }
@@ -69,9 +68,7 @@ export default function notFound() {
             </div>
 
             <div className='w-fit'>
-                <SimplePoem
-                    poem={{ ...(poemarandom as unknown as PoemEssentials) }}
-                />
+                {poemarandom && <SimplePoem poem={{ ...poemarandom }} />}
             </div>
 
             <div className='relative *:size-3/4 *:max-h-[45rem]'>
